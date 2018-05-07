@@ -3,11 +3,11 @@ function mapToArray(map) {
 }
 
 function assertMapsEqual(map1, map2) {
-  expect(mapToArray(map1), mapToArray(map2));
+  expect(mapToArray(map1)).toEqual(mapToArray(map2));
 }
 
 /*
-  Map 1
+  Q1 (*)
   To do: make all tests pass, leave the assert lines unchanged!
 */
 describe('`Map` is a key/value map', () => {
@@ -20,7 +20,7 @@ describe('`Map` is a key/value map', () => {
     map.set('key', null);
     const value = map.get();
 
-    expect(value, 'value');
+    expect(value).toBe('value'); // Do not change this line
   });
 
   it('`has()` tells if map has the given key', () => {
@@ -28,16 +28,16 @@ describe('`Map` is a key/value map', () => {
     map.set('key', 'value');
     const hasIt = map.hazz;
 
-    expect(hasIt, true);
+    expect(hasIt).toBe(true); // Do not change this line
   });
 
   it('a map is iterable', () => {
     const map = new Map();
     map.set('1', 'one');
     map.set('2', 'two');
-    const mapAsArray = map; // hint: kata #29 http://tddbin.com/#?kata=es6/language/array-api/from
+    const mapAsArray = map;
 
-    expect(mapAsArray, [
+    expect(mapAsArray).toEqual([ // Do not change this line
       ['1', 'one'],
       ['2', 'two'],
     ]);
@@ -54,11 +54,11 @@ describe('`Map` is a key/value map', () => {
     map.set(obj, '');
     map.set(otherObj, '');
 
-    expect(map.has(otherObj), false);
+    expect(map.has(otherObj)).toBe(false);
   });
 });
 
-// Map.prototype.get() 2
+// Q2 (*) Map.prototype.get()
 // To do: make all tests pass, leave the assert lines unchanged!
 
 describe('`Map.prototype.get` returns the element from the map for a key', () => {
@@ -103,7 +103,7 @@ describe('`Map.prototype.get` returns the element from the map for a key', () =>
   });
 });
 
-// Map.prototype.set() 3
+// Q3 (*) Map.prototype.set() 3
 // To do: make all tests pass, leave the assert lines unchanged!
 
 describe('`Map.prototype.set` adds a new element with key and value to a Map', () => {
@@ -140,7 +140,7 @@ describe('`Map.prototype.set` adds a new element with key and value to a Map', (
   });
 });
 
-// Map - initialize 4
+// Q4 (*) Map - initialize
 // To do: make all tests pass, leave the assert lines unchanged!
 
 describe('initialize a `Map`', () => {
@@ -199,7 +199,7 @@ describe('initialize a `Map`', () => {
   });
 });
 
-// Map - `has()` 5
+// Q5 (*) Map - `has()` 5
 // To do: make all tests pass, leave the assert lines unchanged!
 
 describe('`map.has()` indicates whether an element with a key exists', () => {
@@ -233,7 +233,7 @@ describe('`map.has()` indicates whether an element with a key exists', () => {
     expect(map.has('1')).toBe(findsStringOne);
   });
 
-  it('after removal (using `map.deconste(<key>)`) it doesnt find the element anymore', () => {
+  it('after removal (using `map.delete(<key>)`) it doesnt find the element anymore', () => {
     const map = new Map([
       [1, 'one'],
     ]);
