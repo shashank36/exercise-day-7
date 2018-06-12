@@ -113,7 +113,7 @@ describe('5 invertObj', () => {
   });
 
   it('prefers the last key found when handling keys with the same value', () => {
-    expect(invertObj(['a', 'b', 'a']), { a: '2', b: '1' });
+    expect(invertObj(['a', 'b', 'a'])).toEqual({ a: '2', b: '1' });
     expect(invertObj({
       x: 'a', y: 'b', z: 'a', _id: 'a',
     })).toEqual({ a: '_id', b: 'y' });
