@@ -135,8 +135,8 @@ describe('`Map.prototype.set` adds a new element with key and value to a Map', (
     map.set(1, 'one')
       .set(2, 'two');
 
-    expect([...map.keys()], [1, 2, 3]);
-    expect([...map.values()], ['one', 'two', 'three']);
+    expect([...map.keys()]).toEqual([1, 2, 3]);
+    expect([...map.values()]).toEqual(['one', 'two', 'three']);
   });
 });
 
