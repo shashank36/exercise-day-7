@@ -32,7 +32,11 @@ Create an iterable using generator function.
 It should have the same functionality as the one in question 1
 */
 function* generatorIterable() {
-  yield 'abc';
+  let num = 0;
+  while (num <= 5) {
+    yield num;
+    num += 1;
+  }
 }
 
 /* 3 (Q6 in tests)
@@ -58,7 +62,19 @@ class ConsumableUsers {
 /* eslint-enable no-underscore-dangle, class-methods-use-this */
 
 // 4 (*) (Q7 in tests)
-const fibonacci = {};
+const fibonacci = {
+  [Symbol.iterator]() {
+    let n1 = 0;
+    let n2 = 1;
+    let value;
+    return {
+      next() {
+        [value, n1, n2] = [n1, n2, n1 + n2];
+        return { value };
+      },
+    };
+  },
+};
 
 // 5 (*) (Q8 in tests)
 /*
